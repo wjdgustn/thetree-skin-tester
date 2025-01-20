@@ -1,0 +1,9 @@
+{
+  "site_name":"테스트위키",
+  "front_page":"테스트위키:대문",
+  "theme_color":"#4188f1",
+  "base_url":"http://localhost:3000",
+  "logo_text":"테스트위키",
+  "logo_image":"",
+  "skin.liberty.navbar_logo_padding":"0.4rem 0 0 0"
+}
