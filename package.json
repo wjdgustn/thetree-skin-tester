@@ -1,0 +1,29 @@
+{
+  "name": "thetree-skin-tester",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=development nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wjdgustn/thetree-skin-tester.git"
+  },
+  "author": "HYONSU",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/wjdgustn/thetree-skin-tester/issues"
+  },
+  "homepage": "https://github.com/wjdgustn/thetree-skin-tester#readme",
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.9"
+  }
+}

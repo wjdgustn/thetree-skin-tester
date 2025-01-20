@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="/css/views/thread.css">
+<script src="/js/thread.js"></script>
+
+
+<form method="post" class="delete-thread-form delete-thread-form-thread" action="/admin/thread/ScarcePowerfulOldTeacher/delete">
+    <button class="thetree-square-button thetree-danger-button">[ADMIN] 스레드 삭제</button>
+    <input type="checkbox" id="noDisplayHideAuthor" x-model="$store.state.page.data.hideHiddenComments">
+    <label for="noDisplayHideAuthor">숨겨진 댓글 보이지 않기</label>
+</form>
+<h2 class="thread-title" x-text="$store.state.page.data.thread.topic">토론 예제</h2>
+<div>
+    <template x-for="(comment, index) in $store.state.page.data.comments">
+        <div x-show="!comment.hidden || !$store.state.page.data.hideHiddenComments" :data-index="index" :data-fetched="comment.userHtml ? '1' : ''" class="comment-block" :class="{ 'comment-block-loading': !comment.userHtml }">
+            <div class="comment-block-inner" x-init="$store.state.threadIntersectionObserver.observe($el)">
+                <div class="comment-block-user" :class="{ 'comment-block-user-starter': comment.user === $store.state.page.data.thread.createdUser }">
+<span class="num-text">
+<a :id="comment.id" x-text="'#' + comment.id"></a>
+</span>
+                    <span x-show="comment.userHtml">
+<span x-html="comment.userHtml"></span>
+<span class="time-block">
+<span x-html="getFullDateTag(comment.createdAt, 'keep') ?? ''"></span>
+<div x-show="comment.type === 0" class="menu-block">
+<span @click="$store.state.threadPopup.open(comment, $el)" role="button" class="navigation-button menu-button">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"></path></svg>
+</span>
+</div>
+</span>
+</span>
+                    <div class="clearboth"></div>
+                </div>
+                <div x-show="!comment.userHtml || !comment.hidden || comment.forceShow" class="comment-block-content" :class="{ 'special-comment': comment.userHtml && comment.type !== 0 }">
+                    <span x-show="comment.seeRaw" x-html="comment.rawHtml"></span>
+                    <span x-show="!comment.seeRaw" x-html="comment.contentHtml ?? ''"></span>
+                </div>
+                <div x-show="comment.userHtml && comment.hidden && !comment.forceShow" class="comment-block-content hidden-comment">
+                    [<span x-html="comment.hideUserHtml"></span>에 의해 숨겨진 글입니다.]
+                    <button @click="comment.forceShow = true" class="thetree-square-button thetree-danger-button">[ADMIN] SHOW</button>
+                </div>
+            </div>
+        </div>
+    </template>
+</div>
+<h3 class="comment-title">댓글 달기</h3>
+<div class="thetree-alert thetree-alert-danger thetree-error-alert" hidden>
+    <div class="thetree-alert-content">
+        <strong>[오류!]</strong>&nbsp; <span class="thetree-alert-content-text"></span>
+    </div>
+</div>
+
+<form method="post" action="/admin/thread/ScarcePowerfulOldTeacher/status">
+    [ADMIN] 스레드 상태 변경
+    <select name="status">
+
+        <option value="Normal" selected>normal</option>
+
+        <option value="Pause">pause</option>
+
+        <option value="Close">close</option>
+
+    </select>
+    <button class="thetree-square-button">변경</button>
+</form>
+
+
+<form method="post" action="/admin/thread/ScarcePowerfulOldTeacher/document">
+    [ADMIN] 스레드 이동
+    <input name="document" value="hyonsutest">
+    <button class="thetree-square-button">변경</button>
+</form>
+
+
+<form method="post" action="/admin/thread/ScarcePowerfulOldTeacher/topic">
+    [ADMIN] 스레드 주제 변경
+    <input name="topic" value="토론 예제">
+    <button class="thetree-square-button">변경</button>
+</form>
+
+<form id="comment-form" class="comment-form" method="post" action="/thread/ScarcePowerfulOldTeacher" x-data="{ selectedTab: 'raw' }">
+    <ul>
+        <li>
+            <button type="button" :class="selectedTab === 'raw' && 'selected-tab'" @click="selectedTab = 'raw'">RAW 편집</button>
+        </li>
+        <li>
+            <button id="preview-tab-button" type="button" :class="selectedTab === 'preview' && 'selected-tab'" @click="selectedTab = 'preview'">미리보기</button>
+        </li>
+    </ul>
+    <div class="tabs">
+        <div :class="selectedTab === 'raw' && 'selected-tab-content'">
+            <textarea id="text-input" class="unsaved-warn" rows="5" name="text" x-show="$store.state.page.data.thread.status === 0"></textarea>
+            <textarea rows="5" disabled x-show="$store.state.page.data.thread.status !== 0" x-text="[, 'pause 상태입니다.', '닫힌 토론입니다.'][$store.state.page.data.thread.status]"></textarea>
+        </div>
+        <div id="preview-tab-content" :class="selectedTab === 'preview' && 'selected-tab-content'">
+            put preview comment box here
+        </div>
+    </div>
+    <div>
+
+    </div>
+    <button class="thetree-square-button thetree-blue-button">전송</button>
+    <div class="clearboth"></div>
+</form>
+<div id="threadpopup" class="popup popup-close" @click="$store.state.threadPopup.close" @click.outside="$store.state.threadPopup.close">
+    <div>
+        <div>
+            <a @click.prevent="$store.state.threadPopup.toggleRaw()" role="button" href="#" class="thetree-button" x-text="$store.state.threadPopup.comment?.seeRaw ? '위키 보기' : '원문 보기'"></a>
+
+            <hr>
+            <a x-show="!$store.state.threadPopup.comment?.hidden" @click.prevent="$store.state.threadPopup.hide()" role="button" href="#" class="thetree-button thetree-block-button">[ADMIN] 숨기기</a>
+            <a x-show="$store.state.threadPopup.comment?.hidden" @click.prevent="$store.state.threadPopup.show()" role="button" href="#" class="thetree-button thetree-block-button">[ADMIN] 숨기기 해제</a>
+
+        </div>
+    </div>
+</div>

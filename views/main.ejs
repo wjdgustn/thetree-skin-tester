@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <title>the tree</title>
+
+    <style>
+        @import "/css/ionicons.min.css";
+        @import "/css/default.css";
+        @import "/css/wiki.css";
+        @import "/css/dark.css";
+        /*@import "/css/github.min.css";*/
+        /*@import "/css/github-dark-dimmed.min.css";*/
+
+        * {
+            --theme-color: #4188f1;
+        }
+    </style>
+
+    <script defer src="/js/lib/alpinejs.min.js"></script>
+    <script src="/js/lib/floating-ui-core.min.js"></script>
+    <script src="/js/lib/floating-ui-dom.min.js"></script>
+    <script src="/js/global.js"></script>
+    <script src="/js/common.js"></script>
+<!--    <script src="/js/wiki.js"></script>-->
+<!--    <script src="/js/modal.js"></script>-->
+    <%-browserGlobalVarScript%>
+</head>
+
+<body x-data class="<%=env.THEME === 'dark' ? 'theseed-dark-mode' : 'theseed-white-mode'%>">
+<div id="progress-bar"></div>
+<div id="app"><%-include(`../skins/${skin}/layout`, { contentHtml })%></div>
+</body>
+</html>

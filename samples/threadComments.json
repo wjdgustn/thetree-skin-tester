@@ -1,0 +1,38 @@
+[
+  {
+    "type": 0,
+    "user": "67791f10-6eb5-4f69-bcec-60e234e05529",
+    "hidden": false,
+    "createdAt": "2025-01-20T14:26:08.714Z",
+    "id": 1,
+    "userHtml": "<span class=\"user-text\"><a class=\"user-text-name user-text-admin\" href=\"/w/사용자:hyonsu\" data-note=\"토론 ScarcePowerfulOldTeacher #1 긴급차단\" data-uuid=\"67791f10-6eb5-4f69-bcec-60e234e05529\" data-type=\"1\" data-threadadmin=\"1\" data-admin=\"1\">hyonsu</a></span>",
+    "contentHtml": "<div class=\"wiki-content wiki-thread-content\"><div class=\"wiki-paragraph\">hello</div></div>"
+  },
+  {
+    "type": 0,
+    "user": "2224828b-3e29-4d81-9c03-fdbd8b451527",
+    "hidden": false,
+    "createdAt": "2025-01-20T14:26:15.384Z",
+    "id": 2,
+    "userHtml": "<span class=\"user-text\"><a class=\"user-text-name user-text-admin\" href=\"/w/사용자:test\" data-note=\"토론 ScarcePowerfulOldTeacher #2 긴급차단\" data-uuid=\"2224828b-3e29-4d81-9c03-fdbd8b451527\" data-type=\"1\" data-threadadmin=\"1\" data-admin=\"1\">test</a></span>",
+    "contentHtml": "<div class=\"wiki-content wiki-thread-content\"><div class=\"wiki-paragraph\">world</div></div>"
+  },
+  {
+    "type": 1,
+    "user": "67791f10-6eb5-4f69-bcec-60e234e05529",
+    "hidden": false,
+    "createdAt": "2025-01-20T14:26:21.705Z",
+    "id": 3,
+    "userHtml": "<span class=\"user-text\"><a class=\"user-text-name user-text-admin\" href=\"/w/사용자:hyonsu\" data-note=\"토론 ScarcePowerfulOldTeacher #3 긴급차단\" data-uuid=\"67791f10-6eb5-4f69-bcec-60e234e05529\" data-type=\"1\" data-threadadmin=\"1\" data-admin=\"1\">hyonsu</a></span>",
+    "contentHtml": "스레드 상태를 <b>close</b>로 변경"
+  },
+  {
+    "type": 1,
+    "user": "67791f10-6eb5-4f69-bcec-60e234e05529",
+    "hidden": false,
+    "createdAt": "2025-01-20T14:26:23.981Z",
+    "id": 4,
+    "userHtml": "<span class=\"user-text\"><a class=\"user-text-name user-text-admin\" href=\"/w/사용자:hyonsu\" data-note=\"토론 ScarcePowerfulOldTeacher #4 긴급차단\" data-uuid=\"67791f10-6eb5-4f69-bcec-60e234e05529\" data-type=\"1\" data-threadadmin=\"1\" data-admin=\"1\">hyonsu</a></span>",
+    "contentHtml": "스레드 상태를 <b>normal</b>로 변경"
+  }
+]

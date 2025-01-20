@@ -1,0 +1,17 @@
+/**
+ * alpine.js
+ * (c) 2019-2021 Caleb Porzio and contributors
+ * @license MIT
+ */
+
+/**
+ * floating-ui
+ * (c) 2021 Floating UI contributors
+ * @license MIT
+ */
+
+/**
+ * Font Awesome Free
+ * (c) 2024 Fonticons, Inc.
+ * @license CC-BY 4.0
+ */

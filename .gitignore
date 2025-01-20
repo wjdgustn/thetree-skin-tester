@@ -1,0 +1,10 @@
+/.idea/
+/node_modules/
+
+.env
+
+config.json
+
+/skins/
+
+.DS_Store
