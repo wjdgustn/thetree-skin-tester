@@ -53,7 +53,6 @@ document.getElementById('initScript')?.remove();
         config,
         page: pageData,
         session,
-        fs,
         cspNonce: 'dummy',
         ...Types,
         ...globalUtils,
