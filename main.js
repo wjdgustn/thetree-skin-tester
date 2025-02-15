@@ -29,6 +29,8 @@ app.get('/:name', (req, res) => {
         return res.status(404).end('Not found');
     }
     const pageData = JSON.parse(fs.readFileSync(`./samples/${req.params.name}.json`).toString());
+    const serverDataPath = `./samples/${req.params.name}Server.json`;
+    const pageServerData = fs.existsSync(serverDataPath) ? JSON.parse(fs.readFileSync(serverDataPath).toString()) : {};
 
     const session = {
         "menus":Types.permissionMenus,
@@ -52,6 +54,7 @@ document.getElementById('initScript')?.remove();
         skin: process.env.SKIN,
         config,
         page: pageData,
+        ...pageServerData,
         session,
         cspNonce: 'dummy',
         ...Types,
